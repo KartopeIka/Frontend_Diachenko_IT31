@@ -1,0 +1,13 @@
+.footer {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding-inline: 64px;
+}
+
+.footer-title {
+  font-size: 12px;
+  line-height: 100%;
+  font-weight: 400;
+  color: #4B5563;
+}

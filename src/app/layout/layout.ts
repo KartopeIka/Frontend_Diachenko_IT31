@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
+import { Header } from "./header/header";
+import { Footer } from './footer/footer';
 
 @Component({
   selector: 'app-layout',
-  imports: [],
+  imports: [Header, Footer],
   templateUrl: './layout.html',
-  styleUrl: './layout.css',
+  styleUrl: './layout.css'
 })
-export class LayoutComponent {
-  appName = 'Новини ІТ-індустрії'
-}
+export class LayoutComponent {}
