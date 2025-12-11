@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Header } from "./header/header";
 import { Footer } from './footer/footer';
-import { NewsCard } from '../news-card/news-card';
+import { NewsList } from '../news-list/news-list';
 
 @Component({
   selector: 'app-layout',
-  imports: [Header, Footer, NewsCard],
+  imports: [Header, Footer, NewsList],
   templateUrl: './layout.html',
   styleUrl: './layout.css'
 })

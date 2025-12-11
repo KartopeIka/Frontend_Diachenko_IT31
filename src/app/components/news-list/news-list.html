@@ -1,7 +1,3 @@
 <div class="news-card-list">
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
+  <app-news-card *ngFor="let item of items" [item]="item"></app-news-card>
 </div>

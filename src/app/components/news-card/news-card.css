@@ -1,5 +1,5 @@
 .news-card {
-  width: 800px;
+  position: relative;
   height: 296px;
   overflow: hidden;
   background: #180234;
@@ -55,6 +55,13 @@
   color: #ffffff;
 }
 
+.popular-news{
+  font-size: 10px;
+  line-height: 100%;
+  font-weight: 400;
+  color: #ffea00;
+}
+
 .line {
   margin-top: 8px;
   border-top: 1px solid #74f3ff;
@@ -94,4 +101,8 @@
   line-height: 100%;
   color: #060435;
   cursor: pointer;
+}
+
+.read-button {
+  background: #31516a;
 }

@@ -1,4 +1,4 @@
-export interface NewsCard {
+export interface News {
   title: string;
   imgUrl: string;
   date: string;

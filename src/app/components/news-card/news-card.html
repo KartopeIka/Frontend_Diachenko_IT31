@@ -1,26 +1,38 @@
 <div class="news-card">
   <div class="news-card-image">
-    <img src="images/TwiJS.png" alt="">
+    <img [src]="'images/' + item.imgUrl"
+      [alt]="item.title + ' image'">
   </div>
   <div class="news-card-content">
-    <h1 class="title">Twighlight Sparkle recommends learning JS!</h1>
-    <p class="description">Princess of Equestria gives her opinion on JavaScript usability.</p>
+    <h1 class="title">{{item.title}}</h1>
+    <p class="description">{{item.description}}</p>
     <div class="data">
         <div class="data-item">
-            <h2 class="data-title">author: Julia Diachenko</h2>
-            <h2 class="data-title">06.12.2005 22:55</h2>
-            <h2 class="data-title">376 views</h2>
+            <h2 class="data-title">author: {{item.author}}</h2>
+            <h2 class="data-title">{{item.date}}</h2>
+            <h2 class="data-title">{{item.viewsAmmount}} views</h2>
+            <div class="popular-news"
+                *ngIf="item.viewsAmmount > 500"
+                >
+                <h2>Popular news!</h2>
+            </div>
         </div>
     </div>
     <div class="line"></div>
     <div class="key-words">
       <div class="key-words-list">
-        <div class="key-word">JavaScript</div>
-        <div class="key-word">Programming</div>
-        <div class="key-word">Learning</div>
-        <div class="key-word">Interview</div>
+        <div
+          class="key-word"
+          *ngFor="let keyWord of item.keyWords"
+        >
+          {{ keyWord }}
+        </div>
       </div>
     </div>
-    <button class="button">Read</button>
+    <button 
+    class="button"
+    [ngClass]="{'read-button': isRead}"
+    (click)="isRead = true">Read more...
+  </button>
   </div>
-</div>
+  </div>
