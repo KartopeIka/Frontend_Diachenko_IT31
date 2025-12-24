@@ -1,3 +1,4 @@
 <app-header></app-header>
-<app-news-list></app-news-list>
+<app-search-bar (searchTextChanged)="setSearchText($event)"></app-search-bar>
+<app-news-list [searchText]="searchText"></app-news-list>
 <app-footer></app-footer>

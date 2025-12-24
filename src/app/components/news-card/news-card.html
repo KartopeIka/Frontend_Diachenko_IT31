@@ -30,9 +30,19 @@
       </div>
     </div>
     <button 
-    class="button"
-    [ngClass]="{'read-button': isRead}"
-    (click)="isRead = true">Read more...
-  </button>
+      class="button"
+      [ngClass]="{'read-button': isRead}"
+      (click)="onNewsOpen(); isRead=true">Read more...
+    </button>
   </div>
+  <div
+    class="news-text"
+    [ngClass]="{ 'opened' : isNewsOpen }">
+    <button
+      type="button" class="btn-close" aria-label="Close"
+      class="close-button scale-on-hover"
+      (click)="onNewsClose()">
+    </button>
+    <p class="main-text">{{ item.mainText }}</p>
   </div>
+</div>

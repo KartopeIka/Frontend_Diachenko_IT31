@@ -106,3 +106,50 @@
 .read-button {
   background: #31516a;
 }
+
+.news-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 100%;
+  background: #e7fdff;
+  transition: all 0.2s ease;
+
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.opened {
+  top: 0;
+}
+
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #180234;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.scale-on-hover {
+  transition: transform 0.2s ease;
+}
+
+.scale-on-hover:hover {
+  transform: scale(1.1);
+}
+
+.main-text{
+  height: 24px;
+  font-size: 14px;
+  line-height: 100%;
+  font-weight: 400;
+  color: #000000;
+}

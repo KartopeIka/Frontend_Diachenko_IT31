@@ -1,0 +1,40 @@
+<div class="filter-bar-line">
+    <form>
+        <input
+            class="form-check-input"
+            type="radio"
+            id="showAll"
+            name="newsFilter"
+            value="all"
+            [(ngModel)]="selectedFilterRadioButton"
+            (change)="onSelectedFilterRadioButtonChanged()"
+        />
+        <label class="form-check-label" for="showAll">
+            {{ 'All' }}
+        </label>
+        <input
+            class="form-check-input"
+            type="radio"
+            id="showPopular"
+            name="newsFilter"
+            value="popular"
+            [(ngModel)]="selectedFilterRadioButton"
+            (change)="onSelectedFilterRadioButtonChanged()"
+        />
+        <label class="form-check-label" for="showPopular">
+            {{ 'Popular' }}
+        </label>
+        <input
+            class="form-check-input"
+            type="radio"
+            id="showunpopular"
+            name="bookFilter"
+            value="unpopular"
+            [(ngModel)]="selectedFilterRadioButton"
+            (change)="onSelectedFilterRadioButtonChanged()"
+        />
+        <label class="form-check-label" for="showUnpopular">
+            {{ 'Unpopular' }}
+        </label>
+    </form>
+</div>

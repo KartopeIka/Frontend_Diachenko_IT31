@@ -1,3 +1,7 @@
+<app-filter-bar (selectedFilterRadioButtonChanged)="getSelectedFilterRadioButton($event)"></app-filter-bar>
 <div class="news-card-list">
-  <app-news-card *ngFor="let item of items" [item]="item"></app-news-card>
+  <app-news-card *ngFor="let item of filteredAndSearchedNews" [item]="item"
+    [openedCardId]="openedCardId"
+    (id)="getNewOpenedCardId($event)">
+  </app-news-card>
 </div>
