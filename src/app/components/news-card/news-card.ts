@@ -1,14 +1,15 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { News } from '../../news-card-interface';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-news-card',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './news-card.html',
   styleUrl: './news-card.css',
 })
-export class NewsCard implements OnChanges{
+export class NewsCard{
   @Input() item!:News;
   isRead: boolean = false;
 
@@ -16,16 +17,6 @@ export class NewsCard implements OnChanges{
   @Output() id = new EventEmitter<number | null>();
 
   isNewsOpen: boolean = false;
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['openedCardId']) {
-      this.isOpen();
-    }
-  }
-
-  isOpen() : void {
-    this.isNewsOpen = this.openedCardId === this.item.id;
-  }
 
   onNewsOpen() : void {
     this.id.emit(this.item.id);

@@ -1,7 +1,6 @@
+<app-search-bar></app-search-bar>
 <app-filter-bar></app-filter-bar>
 <div class="news-card-list">
-  <app-news-card *ngFor="let item of items" [item]="item"
-    [openedCardId]="openedCardId"
-    (id)="getNewOpenedCardId($event)">
+  <app-news-card *ngFor="let item of items" [item]="item">
   </app-news-card>
 </div>

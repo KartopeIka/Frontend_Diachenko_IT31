@@ -1,0 +1,23 @@
+<div class="news-card" *ngIf="item as item">
+  <div class="news-card-image">
+    <img src="images/line.png" alt="">
+  </div>
+  <div class="news-card-content">
+    <div class="line"></div>
+    <h1 class="title">{{item.title}}</h1>
+    <p class="description">{{item.description}}</p>
+    <p class="main-text">{{item.mainText}}</p>
+    <div class="data">
+        <div class="data-item">
+            <h2 class="data-title">author: {{item.author}}</h2>
+            <h2 class="data-title">{{item.date}}</h2>
+            <h2 class="data-title">{{item.viewsAmmount}} views</h2>
+        </div>
+    </div>
+    <div class="line"></div>    
+    
+  </div>
+  <div class="news-card-image">
+        <img src="images/line.png" alt="">
+    </div>
+</div>

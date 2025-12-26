@@ -29,11 +29,7 @@
         </div>
       </div>
     </div>
-    <button 
-      class="button"
-      [ngClass]="{'read-button': isRead}"
-      (click)="onNewsOpen(); isRead=true">Read more...
-    </button>
+    <a [routerLink]="['/items', item.id]" class="details-link">Read more...</a>
   </div>
   <div
     class="news-text"

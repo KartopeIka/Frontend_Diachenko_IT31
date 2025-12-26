@@ -5,20 +5,15 @@ import { News } from '../../news-card-interface';
 import { FilterBar } from '../filter-bar/filter-bar';
 import { DataService } from '../../services/data.service';
 import { Subscription } from 'rxjs';
+import { SearchBar } from '../search-bar/search-bar';
 
 @Component({
   selector: 'app-news-list',
-  imports: [NewsCard, CommonModule, FilterBar],
+  imports: [NewsCard, CommonModule, SearchBar, FilterBar],
   templateUrl: './news-list.html',
   styleUrl: './news-list.css',
 })
 export class NewsList{
-
-  openedCardId : number | null = null;
-
-  getNewOpenedCardId(id : number | null) : void {
-    this.openedCardId = id;
-  }
   
   items: News[] = [];
   private itemsSub?: Subscription;
@@ -35,5 +30,4 @@ export class NewsList{
       this.itemsSub.unsubscribe();
     }
   }
-
 }

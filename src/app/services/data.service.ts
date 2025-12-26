@@ -125,4 +125,8 @@ export class DataService{
       });
       this.itemsSubject.next(filtered);
   }
+
+   getItemById(id: number): News | undefined {
+    return this.items.find(d => d.id === id);
+  }
 }
