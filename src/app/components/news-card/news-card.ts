@@ -2,10 +2,12 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { News } from '../../news-card-interface';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TruncatePipe } from '../../pipes/truncate.pipe';
+import { HoverHighlightDirective } from '../../directives/on-hover.directive';
 
 @Component({
   selector: 'app-news-card',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule,TruncatePipe,HoverHighlightDirective],
   templateUrl: './news-card.html',
   styleUrl: './news-card.css',
 })

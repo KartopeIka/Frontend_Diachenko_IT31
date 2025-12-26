@@ -86,6 +86,7 @@ export class DataService{
     }  
   ]
     private itemsSubject = new BehaviorSubject<News[]>(this.items);
+    items$ = this.itemsSubject.asObservable();
 
     getItems(): Observable<News[]> {
     return of(this.items);

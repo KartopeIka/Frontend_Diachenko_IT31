@@ -1,4 +1,5 @@
 .news-card {
+  width: 100%;
   position: relative;
   height: 296px;
   overflow: hidden;

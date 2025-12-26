@@ -1,6 +1,6 @@
 <app-search-bar></app-search-bar>
 <app-filter-bar></app-filter-bar>
-<div class="news-card-list">
+<div class="news-card-list" *ngIf="items$ | async as items">
   <app-news-card *ngFor="let item of items" [item]="item">
   </app-news-card>
 </div>

@@ -1,11 +1,11 @@
-<div class="news-card">
+<div class="news-card" HoverHighlight>
   <div class="news-card-image">
     <img [src]="'images/' + item.imgUrl"
       [alt]="item.title + ' image'">
   </div>
   <div class="news-card-content">
     <h1 class="title">{{item.title}}</h1>
-    <p class="description">{{item.description}}</p>
+    <p class="description">{{item.description|truncatePipe:40}}</p>
     <div class="data">
         <div class="data-item">
             <h2 class="data-title">author: {{item.author}}</h2>
