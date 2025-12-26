@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { News } from '../../news-card-interface';
 import { FilterBar } from '../filter-bar/filter-bar';
 import { DataService } from '../../services/data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-news-list',
@@ -20,34 +21,19 @@ export class NewsList{
   }
   
   items: News[] = [];
-
+  private itemsSub?: Subscription;
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.items = this.dataService.getItems();}
-
-  @Input() searchText: string = '';
-
-  selectedFilterRadioButton: string = 'all';
-
-  getSelectedFilterRadioButton(value: string) {
-    this.selectedFilterRadioButton = value;
+    this.itemsSub = this.dataService.getItemsStream().subscribe((items) => {
+      this.items = items;
+    });
   }
 
-  get filteredAndSearchedNews() {
-    return this.items
-      .filter(NewsCard => {
-        // Фільтрація по радіокнопках
-        if (this.selectedFilterRadioButton === 'popular') {
-          return NewsCard.viewsAmmount>=500;
-        } else if (this.selectedFilterRadioButton === 'unpopular') {
-          return NewsCard.viewsAmmount<500;
-        }
-        return true; // Повернути всі новини, якщо вибрано "all"
-      })
-      .filter(NewsCard => {
-        // Пошук по заголовку
-        return NewsCard.title.toLowerCase().includes(this.searchText.toLowerCase());
-      });
+  ngOnDestroy(): void {
+    if (this.itemsSub) {
+      this.itemsSub.unsubscribe();
+    }
   }
+
 }

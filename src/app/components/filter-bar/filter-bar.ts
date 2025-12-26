@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import {FormsModule} from "@angular/forms";
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-filter-bar',
@@ -8,13 +9,12 @@ import {FormsModule} from "@angular/forms";
   styleUrl: './filter-bar.css',
 })
 export class FilterBar {
-  @Output()
-  selectedFilterRadioButtonChanged: EventEmitter<string> = new EventEmitter<string>();
 
+  constructor(private dataService: DataService) {}
   selectedFilterRadioButton: string = 'all';
 
   onSelectedFilterRadioButtonChanged() {
-    this.selectedFilterRadioButtonChanged.emit(this.selectedFilterRadioButton);
+    this.dataService.updatePopularity(this.selectedFilterRadioButton);
   }
 
 }

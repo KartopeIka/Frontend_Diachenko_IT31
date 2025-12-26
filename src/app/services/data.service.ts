@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { News } from '../news-card-interface';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 
@@ -84,8 +85,44 @@ export class DataService{
       mainText: 'FFFFFFFFFFFFFFFFFFFFFFFF'
     }  
   ]
+    private itemsSubject = new BehaviorSubject<News[]>(this.items);
 
-    getItems(): News[] {
-    return this.items;
+    getItems(): Observable<News[]> {
+    return of(this.items);
+  }
+
+  getItemsStream(): Observable<News[]> {
+    return this.itemsSubject.asObservable();
+  }
+
+  private searchText: string = '';
+  private selectedPopularity: string = 'All';
+
+  updateSearch(search:string){
+    this.searchText = search;
+    this.applyFilters();
+  }
+
+  updatePopularity(pop:string){
+    this.selectedPopularity = pop;
+    this.applyFilters();
+  }
+
+  private applyFilters(){
+    let filtered = this.items
+      .filter(NewsCard => {
+        // Фільтрація по радіокнопках
+        if (this.selectedPopularity === 'popular') {
+          return NewsCard.viewsAmmount>=500;
+        } else if (this.selectedPopularity === 'unpopular') {
+          return NewsCard.viewsAmmount<500;
+        }
+        return true; // Повернути всі новини, якщо вибрано "all"
+      })
+      .filter(NewsCard => {
+        // Пошук по заголовку
+        return NewsCard.title.toLowerCase().includes(this.searchText.toLowerCase());
+      });
+      this.itemsSubject.next(filtered);
   }
 }

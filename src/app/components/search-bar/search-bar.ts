@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {FormsModule} from "@angular/forms";
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -10,10 +11,8 @@ import {FormsModule} from "@angular/forms";
 export class SearchBar {
   searchText: string = '';
 
-  @Output()
-  searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
-
+  constructor(private dataService: DataService) {}
   onSearchTextChanged() {
-    this.searchTextChanged.emit(this.searchText);
+    this.dataService.updateSearch(this.searchText);
   }
 }
